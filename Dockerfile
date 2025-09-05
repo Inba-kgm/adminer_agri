@@ -4,7 +4,7 @@ FROM python:3.11-slim AS base
 
 RUN apt-get update && apt-get install -y \
     python3-dev gcc libpq-dev \
-    php8.2 php8.2-fpm php8.2-mysql php8.2-pgsql php8.2-sqlite3 \
+    php php-fpm php-mysql php-pgsql php-sqlite3 \
     curl unzip nginx supervisor && \
     rm -rf /var/lib/apt/lists/*
 #Install Adminer
