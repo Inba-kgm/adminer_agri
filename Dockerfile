@@ -24,13 +24,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project files
 COPY . .
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
 # Nginx + PHP config
 COPY deploy/nginx.conf /etc/nginx/sites-enabled/default
 COPY deploy/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-#Collect static files
 
+#Collect static files
+RUN python manage.py migrate --noinput
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
