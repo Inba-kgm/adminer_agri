@@ -23,4 +23,6 @@ COPY deploy/nginx.conf /etc/nginx/sites-enabled/default COPY deploy/supervisord.
 
 RUN python manage.py collectstatic --noinput
 
-EXPOSE 8000 CMD ["/usr/bin/supervisord"]
+EXPOSE 8000
+
+CMD ["/usr/bin/supervisord"]
