@@ -4,4 +4,4 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 def home(request):
-    return HttpResponseRedirect("")  # Redirect to Adminer
+    return HttpResponseRedirect("/adminer.php")  # Redirect to Adminer
