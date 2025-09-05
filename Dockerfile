@@ -15,10 +15,9 @@ RUN mkdir -p /var/www/html && \
 
 WORKDIR /app COPY requirements.txt . RUN pip install --no-cache-dir -r requirements.txt COPY . .
 
-#Nginx + PHP config
-
-COPY deploy/nginx.conf /etc/nginx/sites-enabled/default COPY deploy/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
+# Nginx + PHP config
+COPY deploy/nginx.conf /etc/nginx/sites-enabled/default
+COPY deploy/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 #Collect static files
 
 RUN python manage.py collectstatic --noinput
