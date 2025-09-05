@@ -2,11 +2,10 @@ FROM python:3.11-slim AS base
 
 #Install system packages (php, nginx, etc.)
 
-RUN apt-get update && apt-get install -y 
-python3-dev gcc libpq-dev 
-php php-fpm php-mysqli php-pgsql php-sqlite3 curl unzip nginx supervisor && 
-rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y \
+    python3-dev gcc libpq-dev \
+    php php-fpm php-mysqli php-pgsql php-sqlite3 curl unzip nginx supervisor && \
+    rm -rf /var/lib/apt/lists/*
 #Install Adminer
 
 RUN mkdir -p /var/www/html 
