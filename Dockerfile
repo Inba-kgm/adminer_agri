@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
     curl unzip nginx supervisor && \
     rm -rf /var/lib/apt/lists/*
 #Install Adminer
-
+RUN ln -s /usr/sbin/php-fpm8.4 /usr/sbin/php-fpm
 # Download Adminer into /var/www/html
 RUN mkdir -p /var/www/html && \
     curl -L -o /var/www/html/index.php https://www.adminer.org/latest.php
