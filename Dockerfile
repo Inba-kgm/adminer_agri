@@ -13,8 +13,18 @@ RUN mkdir -p /var/www/html && \
     curl -L -o /var/www/html/index.php https://www.adminer.org/latest.php
 #Setup Django
 
-WORKDIR /app COPY requirements.txt . RUN pip install --no-cache-dir -r requirements.txt COPY . .
+# Set working directory
+WORKDIR /app
 
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY . .
+
+# Collect static files
+RUN python manage.py collectstatic --noinput
 # Nginx + PHP config
 COPY deploy/nginx.conf /etc/nginx/sites-enabled/default
 COPY deploy/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
