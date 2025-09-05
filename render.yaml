@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: django-adminer
+    env: docker
+    plan: free
+    autoDeploy: true
