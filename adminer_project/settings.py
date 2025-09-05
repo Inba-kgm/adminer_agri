@@ -26,11 +26,7 @@ SECRET_KEY = 'django-insecure-kg6%b4b#t9pt1o=#%y2@hly4_4-=i2))6aj%mp8c210%l!t6!a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get(
-    "DJANGO_ALLOWED_HOSTS",
-    "localhost,127.0.0.1"
-).split(",")
-
+ALLOWED_HOSTS = ["adminer-agri.onrender.com", "localhost", "127.0.0.1"]
 
 # Application definition
 
