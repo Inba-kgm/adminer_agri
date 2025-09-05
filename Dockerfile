@@ -8,9 +8,9 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/*
 #Install Adminer
 
-RUN mkdir -p /var/www/html 
-&& curl -o /var/www/html/index.php https://www.adminer.org/latest.php
-
+# Download Adminer into /var/www/html
+RUN mkdir -p /var/www/html && \
+    curl -L -o /var/www/html/index.php https://www.adminer.org/latest.php
 #Setup Django
 
 WORKDIR /app COPY requirements.txt . RUN pip install --no-cache-dir -r requirements.txt COPY . .
