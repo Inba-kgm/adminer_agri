@@ -13,6 +13,9 @@ RUN ln -s /usr/sbin/php-fpm8.4 /usr/sbin/php-fpm
 RUN mkdir -p /var/www/html && \
     curl -L -o /var/www/html/index.php https://www.adminer.org/latest.php
 #Setup Django
+# Install Adminer
+RUN mkdir -p /var/www/html \
+    && curl -L https://www.adminer.org/latest.php -o /var/www/html/adminer.php
 
 # Set working directory
 WORKDIR /app
